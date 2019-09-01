@@ -11,5 +11,5 @@ class OddCountSpec extends FlatSpec with Matchers {
   "oddCount(15023)" should "return 7511" in {
     OddCount.oddCount(15023) should be(7511)
   }
-  
+
 }
