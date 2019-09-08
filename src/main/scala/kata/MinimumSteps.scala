@@ -52,20 +52,7 @@ O(n Log n)
 
 object MinimumSteps {
 
-  def minimumSteps(numbers: Array[Int], k: Int): Int = {
-    @tailrec
-    def minSteps(numbers: Array[Int], k: Int, steps: Int): Int = {
-      val minSum = numbers.take(2).sum
-
-      if (minSum < k) {
-        val newArray = numbers.drop(2) :+ minSum
-        minSteps(newArray.sorted, k, steps + 1)
-      } else {
-        steps
-      }
-    }
-
-    minSteps(numbers.sorted, k, 1)
-  }
+  def minimumSteps(numbers: Array[Int], k: Int): Int =
+    numbers.sorted.scanLeft(0)(_ + _).takeWhile(_ < k).length - 1
 
 }
